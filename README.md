@@ -56,6 +56,30 @@
 <a href="https://trendshift.io/repositories/15654?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-15654" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/15654/daily?language=TypeScript" alt="RookieEnough%2FOrion-Store | Trendshift" width="250" height="55"/></a>
 </p>
 
+<details>
+<summary><b>🔍 Orion does not have any trackers!</b></summary>
+
+Saw a few people asking about the 5 "trackers" flagged in App Manager or TrackerControl, so wanted to clear up what those actually are.
+
+**What they actually are:**
+
+- App Manager flags manifest activities from libraries, not active surveillance services.
+- These are literally just the 5 internal screen renderers bundled inside the Unity Ads SDK:
+  - **`AdUnitActivity`**: standard video playback screen
+  - **`FullScreenWebViewDisplay`**: webview player for end cards and interactive screens
+  - **`AdUnitTransparentActivity`**: transparent overlay screen
+  - **`AdUnitSoftwareActivity`** and **`AdUnitTransparentSoftwareActivity`**: fallback renderers for devices that struggle with hardware acceleration
+
+It is 1 single ad library split across its rendering components, not 5 separate tracking networks.
+
+**How it works in Orion:**
+
+- It only ever touches memory if you explicitly tap to watch a rewarded video in the "Fuel the Code" quest for XP.
+- There are zero background services, no banner ads, and no user data collected or sent anywhere.
+- If you do not care about the rewarded XP quest, you can block all 5 of them right there in App Manager. The store will still work completely fine.
+
+</details>
+
 ## Orion Store 2.0 · Native at last :rocket:
 
 Orion Store has been **rebuilt from the ground up as a native Android app**. The web app has been rewritten in Kotlin and Jetpack Compose on **Material 3 Expressive**, with spring motion, shape morphing, a new storefront and features that were never possible before. Updating from 1.x is a normal install over the old app, and your profile, XP, badges, favorites and settings come along.
